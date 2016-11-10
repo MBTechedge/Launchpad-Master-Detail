@@ -1,0 +1,35 @@
+<mvc:View controllerName="md_namespace.controller.Welcome" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="welcome_page">
+		<Page
+			title="{i18n>launchTitle}"
+			class="sapUiContentPadding">
+			<GenericTile 
+				class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+				header="{i18n>masterForm}"
+				subheader=""
+				press="onPress">
+				<tileContent>
+					<TileContent>
+						<content>
+							<ImageContent src="sap-icon://screen-split-one"/>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile 
+				class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" 
+				header="{i18n>invoiceForm}" 
+				subheader="{i18n>invoiceFormSubtitle}"
+				press="">
+				<tileContent>
+					<TileContent unit="" footer="">
+						<content>
+							<ImageContent src="sap-icon://chart-axis"/>
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+		</Page>
+	</App>
+</mvc:View>

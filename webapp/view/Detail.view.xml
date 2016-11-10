@@ -1,0 +1,64 @@
+<mvc:View 
+	controllerName="md_namespace.controller.Detail"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page
+		id="invoiceList"
+		title="{invoice>FirstName} {invoice>LastName} {i18n>detailTitle}"
+		showNavButton="{device>/system/phone}"
+		navButtonPress="onNavBack">
+		<ObjectHeader
+			responsive="true"
+			title="{invoice>TitleOfCourtesy} {invoice>FirstName} {invoice>LastName}"
+			number="ID:{invoice>EmployeeID}">
+		</ObjectHeader>
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm id="SimpleForm"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				labelSpanL="3"
+				labelSpanM="3"
+				emptySpanL="4"
+				emptySpanM="4"
+				columnsL="1"
+				columnsM="1">
+				<f:content>
+					<Label text="{i18n>detailFormTitleField}" />
+					<Text text="{invoice>Title}" />
+					<Label text="{i18n>detailFormAddressField}" />
+					<Text text="{invoice>Address} - {invoice>PostalCode} {invoice>City}, {invoice>Region} {invoice>Country}" />
+					<Label text="{i18n>detailFormPhoneField}" />
+					<Text text="{invoice>HomePhone}" />
+					<Label text="{i18n>detailFormNoteField}" />
+					<Text text="{invoice>Notes}" />
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<content>
+			<List
+			id="detailsList"
+			headerText="{i18n>detailsList}"
+			width="auto"
+			items="{
+		        path : 'invoice>Orders'
+		    }" >
+				<items>
+			    	<ObjectListItem
+			        	title="{invoice>OrderID} - {invoice>CustomerID}"
+			        	number="{path:'invoice>Freight'} USD"
+			    		type="Navigation"
+						press="onPress" >
+						<attributes>
+							<ObjectAttribute text="{invoice>OrderDate}" />
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

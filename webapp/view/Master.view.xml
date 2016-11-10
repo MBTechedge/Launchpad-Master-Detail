@@ -1,0 +1,45 @@
+<mvc:View 
+	controllerName="md_namespace.controller.Master"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>masterTitle}" showHeader="true">
+		<subHeader>
+			<Toolbar>
+				<SearchField liveChange="onFilterList"/>
+				<Button
+					icon="sap-icon://filter"
+					press="handleOpenDialogFilter" />
+			</Toolbar>
+		</subHeader>
+		<content>
+			<List
+			mode="SingleSelectMaster"
+			selectionChange="onPress"
+			id="objectsList"
+			width="auto"
+			items="{
+		        path : 'invoice>/Employees'
+		    }" >
+				<items>
+			    	<ObjectListItem
+			        	title="{invoice>TitleOfCourtesy} {invoice>FirstName} {invoice>LastName}"
+			        	number="ID:{invoice>EmployeeID}"
+			    		type="Navigation"
+						press="onPress" >
+						<attributes>
+							<ObjectAttribute text="{invoice>City}, {invoice>Country}" />
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+	<!--	<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://sort" press="sortOnPress"/>
+			</Toolbar>
+		</footer>  -->
+	</Page>
+</mvc:View>

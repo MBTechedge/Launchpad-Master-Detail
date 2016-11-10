@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	controllerName="md_namespace.controller.Master">
+	<ViewSettingsDialog
+		confirm="handleConfirm">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>field3}" key="City" />
+			<ViewSettingsItem text="{i18n>field4}" key="Country" />
+		</sortItems>
+		<filterItems>
+			<ViewSettingsFilterItem 
+				text="{i18n>field3}" 
+				key="3"
+				id="filterList3"
+				items="{
+			        path : 'invoice>/Employees'
+			    }" >
+				<items>
+			    	<ViewSettingsItem
+			        	text="{invoice>City}"
+			    		key="{invoice>EmployeeID}" />
+				</items>
+			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem 
+				text="{i18n>field4}" 
+				key="4"
+				id="filterList4"
+				items="{
+			        path : 'invoice>/Employees'
+			    }" >
+				<items>
+			    	<ViewSettingsItem
+			        	text="{invoice>Country}"
+			    		key="{invoice>EmployeeID}" />
+				</items>
+			</ViewSettingsFilterItem>
+		</filterItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

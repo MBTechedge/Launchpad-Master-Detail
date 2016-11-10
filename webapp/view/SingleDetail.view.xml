@@ -1,0 +1,48 @@
+<mvc:View 
+	controllerName="md_namespace.controller.SingleDetail"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page
+		id="singleDetailList"
+		title="{i18n>singleDetailTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		<ObjectHeader
+			responsive="true"
+			title="Dettaglio Ordine N.{invoice>OrderID}">
+		</ObjectHeader>
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm id="detailForm"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				labelSpanL="3"
+				labelSpanM="3"
+				emptySpanL="4"
+				emptySpanM="4"
+				columnsL="1"
+				columnsM="1">
+				<f:content>
+					<Label text="{i18n>singleDetailClientID}" />
+					<Text text="{invoice>CustomerID}" />
+					<Label text="{i18n>singleDetailOrderValue}" />
+					<Text text="{invoice>Freight} USD" />
+					<Label text="{i18n>singleDetailRequestDate}" />
+					<Text text="{invoice>RequiredDate}" />
+					<Label text="{i18n>singleDetailShipName}" />
+					<Text text="{invoice>ShipName}" />
+					<Label text="{i18n>singleDetailShipAddress}" />
+					<Text text="{invoice>ShipAddress}" />
+					<Label text="{i18n>singleDetailShipDate}" />
+					<Text text="{invoice>ShippedDate}" />
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+	</Page>
+</mvc:View>
+
+<!-- /Order_Details -->
